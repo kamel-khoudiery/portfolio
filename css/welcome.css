@@ -1,0 +1,71 @@
+/* WELCOME PAGE */
+svg.line{fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.fine{stroke-width:.8;opacity:.7}
+.wh,.wsec,.wend{position:relative;overflow:hidden;padding:clamp(4rem,9vw,7rem) 0;border-top:1px solid var(--line);background:var(--bg);color:var(--fg)}
+.wsec .wrap,.wend .wrap{text-align:center;position:relative;z-index:1}
+.wsec .soft{color:var(--sub);margin:0 auto 2rem;max-width:34em}
+.blush{--bg:#f5eeea}.grey{--bg:#f1f0ee}
+.wh{padding-top:6.5rem;padding-bottom:3rem;min-height:69vh;display:grid;align-items:center;border:0}
+.wh .wrap{display:grid;grid-template-columns:1fr;gap:2rem;align-items:center;position:relative;z-index:1}
+.wh h1{font:italic 400 clamp(2.8rem,8vw,6.4rem)/1 var(--serif);margin-bottom:1.4rem}
+.wh p{font-size:1.2rem;max-width:30em}
+.cup{color:var(--acc);width:min(60%,200px);justify-self:start;margin-top:1.4rem}
+.steam{animation:steam 4.5s ease-in-out infinite}.steam:nth-of-type(2){animation-delay:-1.5s}.steam:nth-of-type(3){animation-delay:-3s}
+@keyframes steam{0%,100%{opacity:.25;transform:translateY(0)}50%{opacity:.9;transform:translateY(-6px)}}
+.cup{animation:bob 7s ease-in-out infinite}
+.sp{position:absolute;color:var(--acc);opacity:.4;width:clamp(56px,8vw,120px);bottom:-6px;transform-origin:50% 100%;animation:sway 9s ease-in-out infinite;pointer-events:none}
+.sp.l{left:2vw}.sp.r{right:2vw;animation-delay:-4s}
+@keyframes sway{50%{transform:rotate(3deg)}}
+.tw{position:absolute;left:14%;top:24%;color:var(--acc);font-size:1.4rem;opacity:0;animation:tw 5s ease-in-out infinite}
+.tw.t2{left:60%;top:16%;animation-delay:-2s}.tw.t3{left:80%;top:62%;animation-delay:-3.5s;font-size:1rem}
+@keyframes tw{50%{opacity:.8;transform:scale(1.2) rotate(20deg)}}
+.brw{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;max-width:760px;margin:0 auto}
+#candle{width:min(210px,50vw);justify-self:center;cursor:pointer;color:var(--acc);fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;overflow:visible}
+#candle .fine{stroke-width:.8;opacity:.7}
+#candle .halo{fill:#c2a36b;stroke:none;opacity:0;transition:opacity .6s;transform-box:fill-box;transform-origin:center;transform:scale(calc(.8 + .3*var(--b,0)))}
+#candle .flame{opacity:0;transition:opacity .6s;transform-origin:60px 94px;animation:flick 2.4s ease-in-out infinite}
+#candle .flame path{fill:#ecd08a;stroke:#b8935a}#candle .flame .in{fill:#fff6dc;stroke:none}
+#candle.lit .flame{opacity:1}#candle.lit .halo{opacity:.2}
+@keyframes flick{0%,100%{transform:scale(1,1) rotate(0)}30%{transform:scale(1.04,.96) rotate(-2deg)}60%{transform:scale(.96,1.05) rotate(2deg)}}
+.ring{width:min(240px,60vw);aspect-ratio:1;border-radius:50%;border:1.5px solid var(--acc);background:#fbf9f6;display:grid;place-items:center;justify-self:center;font:italic 400 1.2rem var(--serif);transform:scale(.68)}
+.fact{background:#fff;border:1px solid var(--line);padding:clamp(1.4rem,4vw,2.4rem);max-width:40rem;min-height:9rem;display:grid;place-items:center;margin:0 auto 1.6rem;font:italic 400 clamp(1.15rem,2.6vw,1.6rem)/1.45 var(--serif)}
+.fact.pop{animation:pop .45s cubic-bezier(.2,1.4,.4,1)}
+@keyframes pop{from{transform:scale(.9) translateY(10px);opacity:0}}
+.pbox{position:relative;width:min(260px,70vw);margin:0 auto;user-select:none;-webkit-user-select:none;touch-action:manipulation}
+#plush{width:100%;display:block;cursor:grab;-webkit-tap-highlight-color:transparent;overflow:visible}
+#plush .pl{transform-origin:50% 96%;transition:transform .15s;animation:idle 5s ease-in-out infinite}
+#plush .eo{transform-box:fill-box;transform-origin:center;animation:blink 5s infinite}
+#plush .es{opacity:0}
+#plush.squeeze .pl{animation:none;transform:scale(1.13,.84)}
+#plush.squeeze .eo,#plush.hit .eo{opacity:0}#plush.squeeze .es,#plush.hit .es{opacity:1}
+#plush.hit .pl{animation:hit .5s ease-out}
+@keyframes idle{50%{transform:translateY(-5px) rotate(1deg)}}
+@keyframes blink{0%,94%,100%{transform:scaleY(1)}97%{transform:scaleY(.1)}}
+@keyframes hit{0%{transform:scale(1.15,.8) rotate(-4deg)}35%{transform:scale(.92,1.1) rotate(4deg)}65%{transform:scale(1.05,.96) rotate(-2deg)}100%{transform:none}}
+.spark{position:absolute;left:50%;top:45%;color:#c2a36b;font-size:1.3rem;pointer-events:none;animation:spark .7s ease-out forwards}
+@keyframes spark{from{transform:translate(-50%,-50%) scale(.4);opacity:1}to{transform:translate(calc(var(--x) - 50%),calc(var(--y) - 50%)) scale(1);opacity:0}}
+.cntl{text-align:center;margin:1rem auto .8rem;color:var(--sub)}
+.prow{display:flex;gap:1rem;justify-content:center}
+.wend .lead{font:italic 400 clamp(1.4rem,3vw,2.2rem)/1.4 var(--serif);margin:0 auto 1.6rem;max-width:28em}
+.wend .btn{color:var(--paper)}.wend .btn:hover{color:var(--ink)}
+.petals{position:fixed;inset:0;pointer-events:none;z-index:1;overflow:hidden}
+.petal{position:absolute;top:0;background:#e7bdb8;opacity:.55;border-radius:0 100% 0 100%;animation:fall 20s linear infinite}
+.petal:nth-child(3n){background:#d9c19a}
+@keyframes fall{from{transform:translate(0,-10vh) rotate(0)}to{transform:translate(9vw,112vh) rotate(420deg)}}
+html.no-anim .petals{display:none}
+@media(max-width:760px){.wh .wrap,.brw{grid-template-columns:1fr}.wh{padding-top:7rem;min-height:auto}.sp{display:none}}
+#candle:focus:not(:focus-visible),#plush:focus:not(:focus-visible){outline:none}
+.wh p{max-width:26em}
+.sakura{position:absolute;right:-1vw;top:0;height:100%;width:auto;max-width:62%;z-index:0;pointer-events:none;transform-origin:100% 100%;animation:sway2 14s ease-in-out infinite}
+@keyframes sway2{50%{transform:rotate(-1deg)}}
+@media(max-width:860px){.sakura{height:58%;opacity:.5}}
+.wh h1{max-width:7.4em}
+@media(max-width:1250px){.wh .wrap>div{max-width:52%}.wh h1{font-size:clamp(2.6rem,6.4vw,5rem)}.sakura{height:86%;opacity:.85}}
+@media(max-width:700px){.wh .wrap>div{max-width:100%}.wh h1{font-size:clamp(2.4rem,12vw,3.6rem)}.sakura{height:40%;opacity:.4;right:-14vw}}
+.wh h1{font-size:clamp(2.4rem,6vw,4.9rem)}
+.wh p{font-size:1.1rem}
+.cup{width:min(50%,150px)}
+@media(max-width:1250px){.wh h1{font-size:clamp(2.4rem,6vw,4.2rem)}}
+@media(max-width:700px){.wh{min-height:auto}}
+/* intro text and title sit at the far left, in line with the logo */
+.wh .wrap{width:100%;max-width:1560px;padding:0 clamp(1.1rem,3vw,2.2rem)}
