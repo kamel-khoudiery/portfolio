@@ -1,0 +1,31 @@
+name: Update portfolio image list
+on:
+  push:
+    paths: ['photos/work/**']
+permissions:
+  contents: write
+# One run at a time, so several uploads in a row can never overwrite each other with an old list.
+concurrency:
+  group: image-lists
+  cancel-in-progress: false
+jobs:
+  list:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+      - name: Write the list from the newest state of the folder
+        run: |
+          git pull --rebase origin "${{ github.ref_name }}"
+          {
+            echo 'window.DATA=window.DATA||{};DATA.workfiles=`'
+            ls photos/work | grep -iE '\.(png|jpe?g|svg|webp)$' | sort || true
+            echo '`;'
+          } > data/workfiles.js
+      - name: Commit if changed
+        run: |
+          git config user.name "list-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add data/workfiles.js
+          git diff --cached --quiet || (git commit -m "Update portfolio image list" && git pull --rebase origin "${{ github.ref_name }}" && git push)
